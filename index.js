@@ -1,17 +1,17 @@
-var request = require('superagent');
-var Service, Characteristic;
+const request = require('superagent');
+let Service, Characteristic;
 
 module.exports = function(homebridge) {
     Service = homebridge.hap.Service;
     Characteristic = homebridge.hap.Characteristic;
 
-    homebridge.registerAccessory("homebridge-wolfhaus", "Wolfhaus", WolfhausAccessory);
+    homebridge.registerAccessory("homebridge-wolfhaus-temperature", "WolfhausTemperature", WolfhausTemperatureAccessory);
 }
 
-class WolfhausAccessory {
+class WolfhausTemperatureAccessory {
     constructor(log, config) {
         this.log = log;
-        this.log('Adding WolfhausAccessory');
+        this.log('Adding WolfhausTemperatureAccessory');
         this.name = config.name;
         this.url = config.url;
 
